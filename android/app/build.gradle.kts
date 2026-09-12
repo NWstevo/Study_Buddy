@@ -6,7 +6,9 @@ plugins {
 
 android {
     namespace = "com.studybuddy.study_planner"
-    compileSdk = flutter.compileSdkVersion
+    // permission_handler_android requires compiling against SDK 37; Flutter's
+    // bundled default (flutter.compileSdkVersion) is currently 36.
+    compileSdk = 37
     ndkVersion = flutter.ndkVersion
 
     compileOptions {

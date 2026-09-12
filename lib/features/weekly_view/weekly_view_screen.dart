@@ -80,7 +80,16 @@ class WeeklyViewScreen extends ConsumerWidget {
             ),
             AppBottomNav(
               currentTab: AppTab.week,
-              onTabSelected: (_) {},
+              onTabSelected: (tab) {
+                if (tab == AppTab.week) return;
+                // Subjects (M6), Summary (M5), and Settings aren't built
+                // yet — say so rather than leaving the tap looking dead.
+                ScaffoldMessenger.of(context)
+                  ..hideCurrentSnackBar()
+                  ..showSnackBar(
+                    SnackBar(content: Text('${_tabLabel(tab)} is coming soon')),
+                  );
+              },
               onFabPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(builder: (_) => const TaskSetupScreen()),
@@ -91,6 +100,19 @@ class WeeklyViewScreen extends ConsumerWidget {
         ),
       ),
     );
+  }
+
+  String _tabLabel(AppTab tab) {
+    switch (tab) {
+      case AppTab.week:
+        return 'Week';
+      case AppTab.subjects:
+        return 'Subjects';
+      case AppTab.summary:
+        return 'Summary';
+      case AppTab.settings:
+        return 'Settings';
+    }
   }
 
   DayPillData _dayPillFor(
