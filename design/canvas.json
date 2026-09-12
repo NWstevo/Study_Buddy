@@ -1,0 +1,17 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 390, "h": 844 },
+    { "file": "TaskSetup.dc.html", "x": 490, "y": 0, "w": 390, "h": 844 },
+    { "file": "AlarmActive.dc.html", "x": 980, "y": 0, "w": 390, "h": 844 },
+    { "file": "RescheduleSheet.dc.html", "x": 1470, "y": 0, "w": 390, "h": 844 },
+    { "file": "Summary.dc.html", "x": 1960, "y": 0, "w": 390, "h": 844 }
+  ],
+  "annotations": [
+    { "id": "note-main", "x": 0, "y": -90, "w": 390, "text": "1. This Week\nWeekly view grouped by subject. Tap a task to complete; tap the FAB to add one." },
+    { "id": "note-tasksetup", "x": 490, "y": -90, "w": 390, "text": "2. New Task / Routine\nSubject picker, weekly recurrence, alarm time + deadline. Every text field has a mic icon for voice-to-text." },
+    { "id": "note-alarm", "x": 980, "y": -90, "w": 390, "text": "3. Alarm firing\nFull-screen state when a task's alarm rings. Complete, carry forward, or reschedule from here." },
+    { "id": "note-reschedule", "x": 1470, "y": -90, "w": 390, "text": "4. Reschedule sheet\nShown after 'Carry forward' or 'Reschedule' — user must set the new alarm time before confirming." },
+    { "id": "note-summary", "x": 1960, "y": -90, "w": 390, "text": "5. Summary\nWeekly report: completed / missed / carried-forward counts, a day-by-day strip, and per-subject progress." }
+  ],
+  "launch": { "view": "canvas" }
+}

@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    .frame {
+      width: 390px; height: 844px; overflow: hidden; position: relative;
+      background: oklch(0.98 0.012 75);
+      font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: oklch(0.22 0.014 75);
+      display: flex; flex-direction: column;
+    }
+    h1, .display { font-family: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif; }
+    .icon { display: block; }
+    a { color: oklch(0.5 0.15 288); }
+    a:hover { color: oklch(0.42 0.15 288); }
+  </style>
+</helmet>
+
+<div class="frame">
+
+  <!-- Header -->
+  <div style="padding: 28px 20px 16px; display: flex; flex-direction: column; gap: 14px;">
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+      <h1 class="display" style="margin: 0; font-size: 26px; font-weight: 800; letter-spacing: -0.02em;">This Week</h1>
+      <div style="display: flex; align-items: center; gap: 6px; width: 44px; height: 44px; justify-content: flex-end;">
+        <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.48 0.012 75)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 8v4l2.5 2.5"/></svg>
+      </div>
+    </div>
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+      <button style="width: 32px; height: 32px; border-radius: 999px; border: 1px solid oklch(0.89 0.012 75); background: oklch(1 0 0); display: flex; align-items: center; justify-content: center; padding: 0;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="oklch(0.48 0.012 75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <span style="font-size: 14px; font-weight: 600; color: oklch(0.48 0.012 75);">Mon 8 — Sun 14 Sep</span>
+      <button style="width: 32px; height: 32px; border-radius: 999px; border: 1px solid oklch(0.89 0.012 75); background: oklch(1 0 0); display: flex; align-items: center; justify-content: center; padding: 0;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="oklch(0.48 0.012 75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Day selector -->
+  <div style="display: flex; gap: 8px; padding: 4px 20px 18px; justify-content: space-between;">
+    <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
+      <span style="font-size:11px; font-weight:600; color: oklch(0.62 0.01 75);">M</span>
+      <div style="width:34px; height:34px; border-radius:999px; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600; color: oklch(0.48 0.012 75);">8</div>
+      <div style="width:4px; height:4px; border-radius:999px; background: oklch(0.62 0.14 195);"></div>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
+      <span style="font-size:11px; font-weight:600; color: oklch(0.62 0.01 75);">T</span>
+      <div style="width:34px; height:34px; border-radius:999px; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600; color: oklch(0.48 0.012 75);">9</div>
+      <div style="width:4px; height:4px; border-radius:999px; background: transparent;"></div>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
+      <span style="font-size:11px; font-weight:700; color: oklch(0.5 0.15 288);">W</span>
+      <div style="width:34px; height:34px; border-radius:999px; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; color: oklch(1 0 0); background: oklch(0.5 0.15 288);">10</div>
+      <div style="width:4px; height:4px; border-radius:999px; background: oklch(0.62 0.14 240);"></div>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
+      <span style="font-size:11px; font-weight:600; color: oklch(0.62 0.01 75);">T</span>
+      <div style="width:34px; height:34px; border-radius:999px; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600; color: oklch(0.48 0.012 75);">11</div>
+      <div style="width:4px; height:4px; border-radius:999px; background: oklch(0.62 0.14 320);"></div>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
+      <span style="font-size:11px; font-weight:600; color: oklch(0.62 0.01 75);">F</span>
+      <div style="width:34px; height:34px; border-radius:999px; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600; color: oklch(0.48 0.012 75);">12</div>
+      <div style="width:4px; height:4px; border-radius:999px; background: oklch(0.62 0.14 240);"></div>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
+      <span style="font-size:11px; font-weight:600; color: oklch(0.62 0.01 75);">S</span>
+      <div style="width:34px; height:34px; border-radius:999px; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600; color: oklch(0.7 0.01 75);">13</div>
+      <div style="width:4px; height:4px; border-radius:999px; background: transparent;"></div>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:6px;">
+      <span style="font-size:11px; font-weight:600; color: oklch(0.62 0.01 75);">S</span>
+      <div style="width:34px; height:34px; border-radius:999px; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600; color: oklch(0.7 0.01 75);">14</div>
+      <div style="width:4px; height:4px; border-radius:999px; background: transparent;"></div>
+    </div>
+  </div>
+
+  <!-- Task list -->
+  <div style="flex: 1; overflow: hidden; padding: 4px 20px 0; display: flex; flex-direction: column; gap: 22px;">
+
+    <!-- Subject: Math -->
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <div style="width: 8px; height: 8px; border-radius: 999px; background: oklch(0.62 0.14 240);"></div>
+        <span style="font-size: 13px; font-weight: 700; color: oklch(0.22 0.014 75);">Calculus II</span>
+        <span style="font-size: 12px; color: oklch(0.62 0.01 75);">2 tasks</span>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: oklch(1 0 0); border: 1px solid oklch(0.91 0.012 75); border-radius: 14px;">
+        <div style="display:flex; flex-direction:column; align-items:center; min-width: 44px;">
+          <span style="font-size: 13px; font-weight: 700;">07:30</span>
+          <span style="font-size: 10px; color: oklch(0.62 0.01 75);">AM</span>
+        </div>
+        <div style="width:1px; height: 30px; background: oklch(0.91 0.012 75);"></div>
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 2px;">
+          <span style="font-size: 14px; font-weight: 600;">Practice set — integrals</span>
+          <div style="display: flex; align-items: center; gap: 5px;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="oklch(0.58 0.17 25)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22V4M4 4h13l-2.5 4L17 12H4"/></svg>
+            <span style="font-size: 11px; font-weight: 600; color: oklch(0.58 0.17 25);">Due tomorrow</span>
+          </div>
+        </div>
+        <button style="width: 26px; height: 26px; border-radius: 999px; border: 1.75px solid oklch(0.85 0.01 75); background: none; padding: 0; flex-shrink: 0;"></button>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: oklch(1 0 0); border: 1px solid oklch(0.91 0.012 75); border-radius: 14px; opacity: 0.55;">
+        <div style="display:flex; flex-direction:column; align-items:center; min-width: 44px;">
+          <span style="font-size: 13px; font-weight: 700; text-decoration: line-through;">19:00</span>
+          <span style="font-size: 10px; color: oklch(0.62 0.01 75);">PM</span>
+        </div>
+        <div style="width:1px; height: 30px; background: oklch(0.91 0.012 75);"></div>
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 2px;">
+          <span style="font-size: 14px; font-weight: 600; text-decoration: line-through;">Review lecture notes</span>
+          <span style="font-size: 11px; color: oklch(0.62 0.14 155); font-weight: 600;">Completed</span>
+        </div>
+        <div style="width: 26px; height: 26px; border-radius: 999px; background: oklch(0.62 0.14 155); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="oklch(1 0 0)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subject: Biology -->
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <div style="width: 8px; height: 8px; border-radius: 999px; background: oklch(0.62 0.14 195);"></div>
+        <span style="font-size: 13px; font-weight: 700; color: oklch(0.22 0.014 75);">Cell Biology</span>
+        <span style="font-size: 12px; color: oklch(0.62 0.01 75);">1 task</span>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: oklch(0.94 0.03 288); border: 1px solid oklch(0.85 0.05 288); border-radius: 14px;">
+        <div style="display:flex; flex-direction:column; align-items:center; min-width: 44px;">
+          <span style="font-size: 13px; font-weight: 700;">16:00</span>
+          <span style="font-size: 10px; color: oklch(0.48 0.012 75);">PM</span>
+        </div>
+        <div style="width:1px; height: 30px; background: oklch(0.85 0.05 288);"></div>
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 2px;">
+          <span style="font-size: 14px; font-weight: 600;">Lab report draft</span>
+          <div style="display: flex; align-items: center; gap: 5px;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="oklch(0.5 0.15 288)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="9"/></svg>
+            <span style="font-size: 11px; font-weight: 600; color: oklch(0.5 0.15 288);">Alarm set for 16:00</span>
+          </div>
+        </div>
+        <button style="width: 26px; height: 26px; border-radius: 999px; border: 1.75px solid oklch(0.5 0.15 288); background: none; padding: 0; flex-shrink: 0;"></button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom nav -->
+  <div style="position: relative; padding: 10px 20px calc(20px + 4px); background: oklch(1 0 0); border-top: 1px solid oklch(0.91 0.012 75); display: flex; align-items: center; justify-content: space-around;">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; width: 60px;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.5 0.15 288)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
+      <span style="font-size: 10px; font-weight: 700; color: oklch(0.5 0.15 288);">Week</span>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; width: 60px;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.62 0.01 75)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      <span style="font-size: 10px; font-weight: 600; color: oklch(0.62 0.01 75);">Subjects</span>
+    </div>
+
+    <!-- FAB -->
+    <div style="position: absolute; left: 50%; transform: translateX(-50%); top: -22px; width: 52px; height: 52px; border-radius: 999px; background: oklch(0.5 0.15 288); display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px oklch(0.5 0.15 288 / 0.35);">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="oklch(1 0 0)" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+    </div>
+    <div style="width: 60px;"></div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; width: 60px;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.62 0.01 75)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg>
+      <span style="font-size: 10px; font-weight: 600; color: oklch(0.62 0.01 75);">Summary</span>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; width: 60px;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.62 0.01 75)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 13.5a1.7 1.7 0 0 0 .34 1.87l.06.06a2.06 2.06 0 1 1-2.92 2.92l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1.03 1.56V19.6a2.06 2.06 0 1 1-4.12 0v-.09a1.7 1.7 0 0 0-1.11-1.56 1.7 1.7 0 0 0-1.87.34l-.06.06a2.06 2.06 0 1 1-2.92-2.92l.06-.06a1.7 1.7 0 0 0 .34-1.87A1.7 1.7 0 0 0 2.6 12.4H2.5a2.06 2.06 0 1 1 0-4.12h.09a1.7 1.7 0 0 0 1.56-1.11 1.7 1.7 0 0 0-.34-1.87l-.06-.06a2.06 2.06 0 1 1 2.92-2.92l.06.06a1.7 1.7 0 0 0 1.87.34H8.6A1.7 1.7 0 0 0 9.6 1.28V.5a2.06 2.06 0 1 1 4.12 0v.09a1.7 1.7 0 0 0 1.03 1.56 1.7 1.7 0 0 0 1.87-.34l.06-.06a2.06 2.06 0 1 1 2.92 2.92l-.06.06a1.7 1.7 0 0 0-.34 1.87V6.6a1.7 1.7 0 0 0 1.56 1.03h.09a2.06 2.06 0 1 1 0 4.12h-.09a1.7 1.7 0 0 0-1.56 1.03z"/></svg>
+      <span style="font-size: 10px; font-weight: 600; color: oklch(0.62 0.01 75);">Settings</span>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

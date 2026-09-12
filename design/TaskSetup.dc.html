@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    .frame {
+      width: 390px; height: 844px; overflow: hidden; position: relative;
+      background: oklch(0.98 0.012 75);
+      font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: oklch(0.22 0.014 75);
+      display: flex; flex-direction: column;
+    }
+    h1, .display { font-family: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif; }
+    a { color: oklch(0.5 0.15 288); }
+    a:hover { color: oklch(0.42 0.15 288); }
+    .label { font-size: 12px; font-weight: 700; color: oklch(0.48 0.012 75); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; display: block; }
+    .field {
+      display: flex; align-items: center; gap: 10px;
+      background: oklch(1 0 0); border: 1.5px solid oklch(0.89 0.012 75); border-radius: 14px;
+      padding: 13px 14px;
+    }
+    .mic-btn {
+      width: 30px; height: 30px; border-radius: 999px; flex-shrink: 0; padding: 0; border: none;
+      background: oklch(0.94 0.03 288); display: flex; align-items: center; justify-content: center;
+    }
+  </style>
+</helmet>
+
+<div class="frame">
+
+  <!-- Header -->
+  <div style="padding: 26px 20px 6px; display: flex; align-items: center; gap: 14px;">
+    <button style="width: 36px; height: 36px; border-radius: 999px; border: 1px solid oklch(0.89 0.012 75); background: oklch(1 0 0); display: flex; align-items: center; justify-content: center; padding: 0;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="oklch(0.32 0.014 75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <h1 class="display" style="margin: 0; font-size: 20px; font-weight: 800;">New Task</h1>
+  </div>
+
+  <div style="flex: 1; overflow: hidden; padding: 18px 20px 0; display: flex; flex-direction: column; gap: 20px;">
+
+    <!-- Subject picker -->
+    <div>
+      <span class="label">Subject</span>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <div style="display: flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 999px; background: oklch(0.94 0.045 240); border: 1.5px solid oklch(0.62 0.14 240);">
+          <div style="width: 7px; height: 7px; border-radius: 999px; background: oklch(0.55 0.14 240);"></div>
+          <span style="font-size: 13px; font-weight: 700; color: oklch(0.32 0.09 240);">Calculus II</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 999px; background: oklch(1 0 0); border: 1.5px solid oklch(0.89 0.012 75);">
+          <div style="width: 7px; height: 7px; border-radius: 999px; background: oklch(0.62 0.14 195);"></div>
+          <span style="font-size: 13px; font-weight: 600; color: oklch(0.4 0.012 75);">Cell Biology</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 999px; background: oklch(1 0 0); border: 1.5px solid oklch(0.89 0.012 75);">
+          <div style="width: 7px; height: 7px; border-radius: 999px; background: oklch(0.62 0.14 320);"></div>
+          <span style="font-size: 13px; font-weight: 600; color: oklch(0.4 0.012 75);">Literature</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 999px; border: 1.5px dashed oklch(0.75 0.01 75);">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="oklch(0.55 0.012 75)" stroke-width="2.25" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          <span style="font-size: 13px; font-weight: 600; color: oklch(0.55 0.012 75);">New</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Task name with voice input -->
+    <div>
+      <span class="label">Task or routine name</span>
+      <div class="field">
+        <span style="flex: 1; font-size: 15px; font-weight: 500; color: oklch(0.22 0.014 75);">Practice set — integrals</span>
+        <button class="mic-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="oklch(0.5 0.15 288)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 21v-4"/></svg>
+        </button>
+      </div>
+      <span style="font-size: 11px; color: oklch(0.62 0.01 75); margin-top: 6px; display: block;">Tap the mic to speak instead of typing</span>
+    </div>
+
+    <!-- One-time / routine toggle -->
+    <div>
+      <span class="label">Frequency</span>
+      <div style="display: flex; background: oklch(0.94 0.012 75); border-radius: 12px; padding: 4px;">
+        <div style="flex: 1; text-align: center; padding: 9px; border-radius: 9px; font-size: 13px; font-weight: 600; color: oklch(0.55 0.012 75);">One-time</div>
+        <div style="flex: 1; text-align: center; padding: 9px; border-radius: 9px; font-size: 13px; font-weight: 700; background: oklch(1 0 0); color: oklch(0.22 0.014 75); box-shadow: 0 1px 3px oklch(0.22 0.014 75 / 0.08);">Weekly routine</div>
+      </div>
+    </div>
+
+    <!-- Day selector -->
+    <div>
+      <span class="label">Repeats on</span>
+      <div style="display: flex; gap: 7px;">
+        <div style="width: 36px; height: 36px; border-radius: 999px; background: oklch(0.5 0.15 288); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: oklch(1 0 0);">M</div>
+        <div style="width: 36px; height: 36px; border-radius: 999px; border: 1.5px solid oklch(0.89 0.012 75); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: oklch(0.55 0.012 75);">T</div>
+        <div style="width: 36px; height: 36px; border-radius: 999px; background: oklch(0.5 0.15 288); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: oklch(1 0 0);">W</div>
+        <div style="width: 36px; height: 36px; border-radius: 999px; border: 1.5px solid oklch(0.89 0.012 75); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: oklch(0.55 0.012 75);">T</div>
+        <div style="width: 36px; height: 36px; border-radius: 999px; background: oklch(0.5 0.15 288); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: oklch(1 0 0);">F</div>
+        <div style="width: 36px; height: 36px; border-radius: 999px; border: 1.5px solid oklch(0.89 0.012 75); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: oklch(0.55 0.012 75);">S</div>
+        <div style="width: 36px; height: 36px; border-radius: 999px; border: 1.5px solid oklch(0.89 0.012 75); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: oklch(0.55 0.012 75);">S</div>
+      </div>
+    </div>
+
+    <!-- Time + deadline row -->
+    <div style="display: flex; gap: 12px;">
+      <div style="flex: 1;">
+        <span class="label">Alarm time</span>
+        <div class="field" style="padding: 12px 14px;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="oklch(0.48 0.012 75)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          <span style="flex: 1; font-size: 14px; font-weight: 600;">07:30 AM</span>
+        </div>
+      </div>
+      <div style="flex: 1;">
+        <span class="label">Deadline</span>
+        <div class="field" style="padding: 12px 14px;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="oklch(0.58 0.17 25)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22V4M4 4h13l-2.5 4L17 12H4"/></svg>
+          <span style="flex: 1; font-size: 14px; font-weight: 600;">Sep 11</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notes with voice input -->
+    <div>
+      <span class="label">Notes</span>
+      <div class="field" style="align-items: flex-start; min-height: 84px;">
+        <span style="flex: 1; font-size: 14px; line-height: 1.5; color: oklch(0.48 0.012 75);">Focus on chapters 4–5, redo problem set 3 before the quiz.</span>
+        <button class="mic-btn" style="margin-top: 2px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="oklch(0.5 0.15 288)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 21v-4"/></svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Save button -->
+  <div style="padding: 14px 20px calc(18px + 4px); background: oklch(0.98 0.012 75);">
+    <button style="width: 100%; padding: 15px; border: none; border-radius: 14px; background: oklch(0.5 0.15 288); color: oklch(1 0 0); font-size: 15px; font-weight: 700; font-family: 'Public Sans', sans-serif;">Save task</button>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

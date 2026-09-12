@@ -1,0 +1,66 @@
+name: study_planner
+description: A subject-based weekly study planner with alarm-driven routines and voice-to-text task entry.
+publish_to: "none"
+version: 0.1.0
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State management (see CLAUDE.md)
+  flutter_riverpod: ^3.4.3
+  riverpod_annotation: ^4.0.7
+
+  # Local persistence — relational model per DATA_MODEL.md
+  drift: ^2.35.0
+  drift_flutter: ^0.3.1
+  path_provider: ^2.1.6
+  path: ^1.9.1
+  uuid: ^4.6.0
+
+  # Voice-to-text (every input field, per CONTEXT.md)
+  speech_to_text: ^7.4.0
+  permission_handler: ^13.0.2
+
+  # Fonts + icons (see DESIGN_TOKENS.md)
+  google_fonts: ^8.2.1
+  flutter_svg: ^2.3.0
+
+  # Alarms — verified via Context7 against flutter_local_notifications before locking in (see CLAUDE.md
+  # "Stack"). Chosen because it's purpose-built for looping-sound, full-screen alarm UI rather than a
+  # generic notification. Known tradeoff (documented for the M4 UI, not silently swallowed): on iOS, if
+  # the app is force-killed the alarm may not fire — the package can only warn the user to reopen it.
+  # Android is reliable even when killed, via AlarmManager. Neither platform can fully bypass Do Not
+  # Disturb (that's an OS-level restriction reserved for first-party clock apps).
+  alarm: ^5.13.0
+
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  drift_dev: ^2.35.0
+  build_runner: ^2.15.1
+  riverpod_generator: ^4.0.9
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
+
+flutter:
+  uses-material-design: true
+  fonts: []
+  assets:
+    - assets/icons/
+
+# Generates the real iOS/Android launcher icons from the source in
+# assets/app_icon/ (deliberately NOT under flutter.assets above — it's a
+# build-time source for `dart run flutter_launcher_icons`, not something
+# the app loads at runtime, so it shouldn't ship inside the app bundle).
+# Re-run that command whenever the source image changes.
+flutter_launcher_icons:
+  image_path: "assets/app_icon/studdy-buddy-app-icon.png"
+  android: "launcher_icon"
+  ios: true
+  min_sdk_android: 21

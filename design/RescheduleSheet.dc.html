@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    .frame {
+      width: 390px; height: 844px; overflow: hidden; position: relative;
+      background: oklch(0.24 0.055 288);
+      font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: oklch(0.22 0.014 75);
+      display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    h1, .display { font-family: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif; }
+    .chip {
+      padding: 10px 14px; border-radius: 12px; border: 1.5px solid oklch(0.89 0.012 75);
+      font-size: 13px; font-weight: 600; color: oklch(0.4 0.012 75); background: oklch(1 0 0);
+    }
+  </style>
+</helmet>
+
+<div class="frame">
+
+  <!-- dimmed backdrop hint -->
+  <div style="position: absolute; inset: 0; opacity: 0.45; padding: 26px 20px; display: flex; flex-direction: column; gap: 10px;">
+    <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: oklch(0.75 0.06 288);">Task Alarm</span>
+    <span style="font-size: 22px; font-weight: 800; color: oklch(0.98 0.01 288);" class="display">Lab report draft</span>
+  </div>
+
+  <!-- Bottom sheet -->
+  <div style="position: relative; background: oklch(0.98 0.012 75); border-radius: 24px 24px 0 0; padding: 12px 22px calc(22px + 4px); display: flex; flex-direction: column; gap: 18px; box-shadow: 0 -12px 40px oklch(0 0 0 / 0.25);">
+
+    <div style="width: 40px; height: 4px; border-radius: 999px; background: oklch(0.85 0.01 75); margin: 0 auto;"></div>
+
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <span style="font-size: 12px; font-weight: 700; color: oklch(0.62 0.14 195); text-transform: uppercase; letter-spacing: 0.04em;">Cell Biology</span>
+      <h1 class="display" style="margin: 0; font-size: 19px; font-weight: 800;">Carry forward &amp; set new time</h1>
+      <span style="font-size: 13px; color: oklch(0.55 0.012 75);">The alarm will ring again at the new time you choose below.</span>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <span style="font-size: 12px; font-weight: 700; color: oklch(0.48 0.012 75); text-transform: uppercase; letter-spacing: 0.04em;">Quick options</span>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <div class="chip" style="background: oklch(0.94 0.03 288); border-color: oklch(0.5 0.15 288); color: oklch(0.42 0.15 288);">Tomorrow, 16:00</div>
+        <div class="chip">In 1 hour</div>
+        <div class="chip">Tonight, 20:00</div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <span style="font-size: 12px; font-weight: 700; color: oklch(0.48 0.012 75); text-transform: uppercase; letter-spacing: 0.04em;">Or set a custom time</span>
+      <div style="display: flex; align-items: center; justify-content: center; gap: 18px; background: oklch(1 0 0); border: 1.5px solid oklch(0.89 0.012 75); border-radius: 16px; padding: 18px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="oklch(0.62 0.01 75)" stroke-width="2" stroke-linecap="round"><path d="M18 15l-6-6-6 6"/></svg>
+        <span class="display" style="font-size: 30px; font-weight: 700; letter-spacing: 0.02em; min-width: 130px; text-align: center;">04 : 00 PM</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="oklch(0.62 0.01 75)" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+    </div>
+
+    <div style="display: flex; gap: 10px; margin-top: 4px;">
+      <button style="flex: 1; padding: 15px; border: 1.5px solid oklch(0.89 0.012 75); border-radius: 14px; background: none; color: oklch(0.48 0.012 75); font-size: 14px; font-weight: 700; font-family: 'Public Sans', sans-serif;">Cancel</button>
+      <button style="flex: 2; padding: 15px; border: none; border-radius: 14px; background: oklch(0.5 0.15 288); color: oklch(1 0 0); font-size: 14px; font-weight: 700; font-family: 'Public Sans', sans-serif;">Confirm new time</button>
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>
