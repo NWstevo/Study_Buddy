@@ -53,6 +53,10 @@ class _VoiceTextFieldState extends ConsumerState<VoiceTextField> {
     final result = await controllerNotifier.startListening(
       fieldId: widget.fieldId,
       onResult: (spoken) {
+        // The speech plugin's result callback can fire after this widget is
+        // gone (e.g. the screen was popped mid-listen) — touching
+        // widget.controller past disposal throws.
+        if (!mounted) return;
         widget.controller.text = _baseText.isEmpty ? spoken : '$_baseText $spoken';
         widget.controller.selection = TextSelection.collapsed(
           offset: widget.controller.text.length,

@@ -52,12 +52,21 @@ class VoiceInputController extends _$VoiceInputController {
       }
 
       _available = await _speech.initialize(
+        // These fire from the plugin's own async/timer callbacks, which can
+        // land after this provider (autoDispose by default — it's only kept
+        // alive while a VoiceTextField is on screen) has already been torn
+        // down, e.g. the user backs out of the New Task screen mid-listen.
+        // Writing to `state` after disposal throws, so every write here is
+        // guarded on `ref.mounted`.
         onStatus: (status) {
+          if (!ref.mounted) return;
           if (status == 'notListening' || status == 'done') {
             state = null;
           }
         },
-        onError: (_) => state = null,
+        onError: (_) {
+          if (ref.mounted) state = null;
+        },
       );
     } catch (_) {
       _available = false;
@@ -86,10 +95,14 @@ class VoiceInputController extends _$VoiceInputController {
           : VoiceInputStartResult.unavailable;
     }
 
+    if (!ref.mounted) return VoiceInputStartResult.unavailable;
+
     try {
       state = fieldId;
       await _speech.listen(
-        onResult: (SpeechRecognitionResult result) => onResult(result.recognizedWords),
+        onResult: (SpeechRecognitionResult result) {
+          if (ref.mounted) onResult(result.recognizedWords);
+        },
         listenOptions: SpeechListenOptions(
           partialResults: true,
           cancelOnError: true,
@@ -99,7 +112,7 @@ class VoiceInputController extends _$VoiceInputController {
       );
       return VoiceInputStartResult.started;
     } catch (_) {
-      state = null;
+      if (ref.mounted) state = null;
       return VoiceInputStartResult.unavailable;
     }
   }
@@ -110,7 +123,7 @@ class VoiceInputController extends _$VoiceInputController {
     } catch (_) {
       // Best-effort — the state reset below is what actually matters.
     }
-    state = null;
+    if (ref.mounted) state = null;
   }
 
   bool isListeningTo(String fieldId) => state == fieldId;
